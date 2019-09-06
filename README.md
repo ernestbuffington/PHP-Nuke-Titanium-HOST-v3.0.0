@@ -1,4 +1,4 @@
-# PHP-Nuke Titanium v3.0.0<br />
+# PHP-Nuke Titanium v3.0.0 HUB Files<br />
 Original Nuke-Evolution Xtreme 2.0.9e Core<br /> 
 Modified by **Ernest Allen Buffington**<br />
  For **The 86it Developers Network**<br /><br /> 
