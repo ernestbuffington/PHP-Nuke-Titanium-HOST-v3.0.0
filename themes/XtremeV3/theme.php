@@ -38,7 +38,24 @@ include(NUKE_THEMES_DIR.$theme_name.'/theme_info.php');
 /*-------------------------*/
 /* Theme Colors Definition */
 /*-------------------------*/
-global $ThemeInfo;
+global $digits_color, $fieldset_border_width, $fieldset_color, $define_theme_xtreme_209e, $avatar_overide_size, $ThemeInfo, $use_xtreme_voting, $make_xtreme_avatar_small;
+
+# This is to tell the main portal menu to luook for the images
+# in the theme dir "theme_name/images/menu"
+global $use_theme_image_dir_for_portal_menu;
+
+$use_theme_image_dir_for_portal_menu = false;
+
+
+$digits_color ='#ffb825';
+$fieldset_border_width = '1px'; 
+$fieldset_color = '#4e4e4e';
+$define_theme_xtreme_209e = false;
+$avatar_overide_size = '150';
+$make_xtreme_avatar_small = true;
+$use_xtreme_voting = false;
+
+
 $bgcolor1   = $ThemeInfo['bgcolor1'];
 $bgcolor2   = $ThemeInfo['bgcolor2'];
 $bgcolor3   = $ThemeInfo['bgcolor3'];
@@ -64,43 +81,16 @@ addCSSToHead(xtremev3_style_dir.'menu.css','file');
 /*-------------------*/
 /* OpenTable Section */
 /*-------------------*/
-function OpenTable() 
-{
-echo '<section id="flex-container">'
-    .'  <div class="tb1"></div>'
-    .'  <div class="tb2"></div>'
-    .'  <div class="tb3"></div>'
-    .'</section>'
+/*-------------------*/
+/* OpenTable Section */
+/*-------------------*/
+//include_once(xtremev3_theme_dir.'xtremev3_tables.php');
 
-    .'<section id="flex-container" class="body-background2">'
-    .'  <div class="tb4"></div>'
-    .'  <div class="tb5">';
-}
+include_once(xtremev3_theme_dir.'function_OpenTable.php');
+include_once(xtremev3_theme_dir.'function_CloseTable.php');
 
-function CloseTable() 
-{
-echo '  </div>'
-    .'  <div class="tb6"></div>'
-    .'</section>'
-
-    .'<section id="flex-container">'
-    .'  <div class="tb7"></div>'
-    .'  <div class="tb8"></div>'
-    .'  <div class="tb9"></div>'
-    .'</section>';
-}
-
-# I missed these out on purpose, they will be deprecated in the next update.
-function OpenTable2() 
-{
-
-}
-
-# I missed these out on purpose, they will be deprecated in the next update.
-function CloseTable2() 
-{
-
-}
+include_once(xtremev3_theme_dir.'function_OpenTable2.php');
+include_once(xtremev3_theme_dir.'function_CloseTable2.php');
 
 /*---------------------*/
 /* FormatStory Section */
@@ -159,131 +149,12 @@ function themefooter()
 /*--------------------*/
 /* News Index Section */
 /*--------------------*/
-function themeindex($aid, $informant, $time, $title, $counter, $topic, $thetext, $notes, $morelink, $topicname, $topicimage, $topictext, $writes = false) 
-{
-global $anonymous, $tipath, $theme_name, $sid, $ThemeSel, $nukeurl, $customlang;
-
-    if (!empty($topicimage)):
-    
-        $t_image = (file_exists(xtremev3_images_dir.'topics/'.$topicimage)) ? xtremev3_images_dir.'topics/'.$topicimage : $tipath.$topicimage;
-        $topic_img = '<td class="col-3 extra" style="text-align:center;"><a href="modules.php?name=News&new_topic='.$topic.'"><img src="'.$t_image.'" border="0" alt="'.$topictext.'" title="'.$topictext.'"></a></td>';
-
-    else:
-        $topic_img = '';
-    endif;
-
-    $notes = (!empty($notes)) ? '<br /><br /><strong>'._NOTE.'</strong> '.$notes : '';
-    $content = '';
-
-    if ($aid == $informant):
-        $content = $thetext.$notes;
-    else: 
-
-        if ($writes):
-
-            if (!empty($informant)) :
-                $content = (is_array($informant)) ? '<a href="modules.php?name=Your_Account&amp;op=userinfo&amp;username='.$informant[0].'">'.$informant[1].'</a> ' : '<a href="modules.php?name=Your_Account&amp;op=userinfo&amp;username='.$informant.'">'.$informant.'</a> ';
-            else:
-                $content = $anonymous.' ';
-            endif;
-            $content .= _WRITES.' '.$thetext.$notes;
-
-        else:
-            $content .= $thetext.$notes;
-        endif;
-
-    endif;
-
-$posted = sprintf($customlang['global']['posted_by'], get_author($aid), $time);
-$datetime = substr($morelink, 0, strpos($morelink, '|')-strlen($morelink));
-$morelink = substr($morelink, strlen($datetime)+2);
-$reads = '( <span style="color: yellow;">'.$customlang['global']['reads'].'</span>: <span style="color: red;">'.$counter.'</span> )';
-
-// echo ( get_query_var('name', 'get') ) ? '' : '<br />';
-echo '<article class="news-article">'
-    .'  <section id="flex-container">'
-    .'    <div class="st1"></div>'
-    .'    <div class="st2"><div class="storytitle-wrapper"><span class="storytitle">'.$title.'</span></div></div>'
-    .'    <div class="st3"></div>'
-    .'  </section>'
-    .'  <section id="flex-container">'
-    .'    <div class="st4"></div>'
-    .'    <div class="st5" class="col-12"><span class="content" style="vertical-align: top">'.$content.'</span><br /><br /></div>'
-    .'    <div class="st6"></div>'
-    .'  </section>'
-    .'  <section id="flex-container">'
-    .'    <div class="st7"></div>'
-    .'    <div class="st8">'
-    .'      <div class="postedoption">'.$posted.'<br />'.$datetime.' '.$topictext.' | '.$morelink.' '.$reads.'</div></div>'
-    .'      <div class="st9"></div>'
-    .'  </section>'
-    .'</article>';
-    // .'<br />';
-}
+include_once(xtremev3_theme_dir.'function_themeindex.php');
 
 /*----------------------*/
 /* News Article Section */
 /*----------------------*/
-function themearticle($aid, $informant, $datetime, $title, $thetext, $topic, $topicname, $topicimage, $topictext, $writes = false) 
-{
-global $admin, $sid, $tipath, $theme_name;
-
-	if (!empty($topicimage)) 
-	{
-		$t_image = (file_exists(xtremev3_images_dir.'topics/'.$topicimage)) ? xtremev3_images_dir.'topics/'.$topicimage : $tipath.$topicimage;
-		$topic_img = '<td width="25%" align="center" class="extra"><a href="modules.php?name=News&new_topic='.$topic.'"><img src="'.$t_image.'" border="0" alt="'.$topictext.'" title="'.$topictext.'"></a></td>';
-	} 
-	else 
-	{
-		$topic_img = '';
-	}
-	$notes = (!empty($notes)) ? '<br /><br /><strong>'._NOTE.'</strong> '.$notes : '';
-	$content = '';
-	if ($aid == $informant) 
-	{
-	    $content = $thetext.$notes;
-	} 
-	else 
-	{
-		if ($writes)
-		{
-			if (!empty($informant)) 
-			{
-				$content = (is_array($informant)) ? '<a href="modules.php?name=Your_Account&amp;op=userinfo&amp;username='.$informant[0].'">'.$informant[1].'</a> ' : '<a href="modules.php?name=Your_Account&amp;op=userinfo&amp;username='.$informant.'">'.$informant.'</a> ';
-			}
-			else 
-			{
-				$content = $anonymous.' ';
-			}
-			$content .= _WRITES.' '.$thetext.$notes;
-		} 
-		else 
-		{
-			$content .= $thetext.$notes;
-		}
-	}
-
-$posted = _POSTEDON.' '.$datetime.' '._BY.' ';
-$posted .= get_author($aid);
-
-echo '<article>'
-    .'  <section id="flex-container">'
-    .'      <div class="st1"></div>'
-    .'      <div class="st2"><div style="padding-top: 14px;"><span class="storytitle">'.$title.'</span></div></div>'
-    .'      <div class="st3"></div>'
-    .'  </section>'
-    .'  <section id="flex-container">'
-    .'      <div class="st4"></div>'
-    .'      <div class="st5" class="col-12"><span class="content" style="vertical-align: top">'.$content.'</span><br /><br /></div>'
-    .'      <div class="st6"></div>'
-    .'  </section>'
-    .'  <section id="flex-container">'
-    .'      <div class="st7"></div>'
-    .'      <div class="st8"><div class="postedoption">'.$posted.'</div></div>'
-    .'      <div class="st9"></div>'
-    .'  </section>'
-    .'</article>';
-}
+include_once(xtremev3_theme_dir.'function_themearticle.php');
 
 /*-------------------*/
 /* Centerbox Section */
@@ -308,7 +179,8 @@ echo (!empty($notes)) ? '<br /><br /><strong>'._NOTE.'</strong> <em>'.$notes.'</
 /*-----------------*/
 /* Sidebox Section */
 /*-----------------*/
-function themesidebox($title, $content, $bid = 0) 
+include_once(xtremev3_theme_dir.'function_themesidebox.php');
+function themesideboxOLD($title, $content, $bid = 0) 
 {
 echo '<aside>'
     .'  <div class="bl1"><div style="padding-top: 15px; text-align:center;"><span class="blocktitle" >'.$title.'</span></div></div>'
