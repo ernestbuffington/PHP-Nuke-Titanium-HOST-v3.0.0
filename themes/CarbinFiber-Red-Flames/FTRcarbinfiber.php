@@ -144,7 +144,7 @@ echo '<div align="center" id="foot1">'.$foot2.'</div>';
  
 echo '<div align="center">'; 
 echo '<strong>PHP-Nuke Copyright © 2006 by Francisco Burzi.<br />
-             PHP-Nuke Titanium © 2017 by The 86it Developers Network.</strong>';
+             PHP-Nuke Titanium © 2012-2019 by The 86it Developers Network.</strong>';
 echo '</div>'; 
 
 //echo '<div class="flex-item" style="width: 58px; height: 71px; background-image: url('.carbinfiber_red_flames_ftr_images.'FTR_Copyright.png); padding-right: 20px;">';
