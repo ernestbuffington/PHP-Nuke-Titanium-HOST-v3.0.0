@@ -49,15 +49,23 @@
 	  NSN Center Blocks                        v2.2.1       05/26/2009
  ************************************************************************/
 
-if(defined('NUKE_EVO')) return;
+if(defined('NUKE_EVO')) 
+return;
+
+if(defined('NUKE_TITANIUM')) 
+return;
 
 if (realpath(__FILE__) == realpath($_SERVER['SCRIPT_FILENAME'])) {
     exit('Access Denied');
 }
 // Define File
 define_once('NUKE_EVO', '2.0.9e');
+define_once('NUKE_TITANIUM', '3.0.0');
+define_once('TITANIUM_BUILD', '3001');
 define_once('CUR_EVO', 'NUKE_EVO');
+define_once('CUR_TITANIUM', 'NUKE_TITANIUM');
 define_once('EVO_EDITION', 'xtreme');
+define_once('TITANIUM_EDITION', 'Host');
 define('PHPVERS', @phpversion());
 define_once('EVO_VERSION', NUKE_EVO . ' ' . EVO_EDITION);
 define('PHP_5', version_compare(PHPVERS, '5.0.0', '>='));

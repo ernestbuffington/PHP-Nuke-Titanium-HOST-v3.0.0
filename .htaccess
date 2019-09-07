@@ -1,21 +1,13 @@
-# php -- BEGIN cPanel-generated handler, do not edit
-# Set the “ea-php73” package as the default “PHP” programming language.
-<IfModule mime_module>
-  AddHandler application/x-httpd-ea-php73 .php .php7 .phtml
-</IfModule>
-# php -- END cPanel-generated handler, do not edit
-
 ##########################################################################
-# Nuke-Evolution Basic: Enhanced PHP-Nuke Web Portal System              #
+# PHP- Titanium v3.0.0 : Enhanced PHP-Nuke Web Portal System             #
 ##########################################################################
 
-# -------------------------------------------
+# ------------------------------------------- 
 # Comment this out if PHP is run as CGI
 # -------------------------------------------
 
 # PHP_FLAG register_globals On
 # PHP_FLAG output_buffering On
-
 
 Options All -Indexes
 # -------------------------------------------
@@ -57,22 +49,22 @@ RewriteRule ^.*$ http://127.0.0.1/ [R=301,L]
 # Lazy Google Tap
 # -------------------------------------------
 
-RewriteRule ^Evo-(.*)_-_(.*)_-_(.*)_-_(.*)_-_(.*)_-_(.*)_-_(.*)_-_(.*)_-_(.*)\.html$ /modules.php?name=$1&$2=$3&$4=$5&$6=$7&$8=$9 [L]
+RewriteRule ^86it-(.*)_-_(.*)_-_(.*)_-_(.*)_-_(.*)_-_(.*)_-_(.*)_-_(.*)_-_(.*)\.html$ /modules.php?name=$1&$2=$3&$4=$5&$6=$7&$8=$9 [L]
 
-RewriteRule ^Evo-(.*)_-_(.*)_-_(.*)_-_(.*)_-_(.*)_-_(.*)_-_(.*)\.html#(.*)$ /modules.php?name=$1&$2=$3&$4=$5&$6=$7#$8 [L]
-RewriteRule ^Evo-(.*)_-_(.*)_-_(.*)_-_(.*)_-_(.*)_-_(.*)_-_(.*)\.html$ /modules.php?name=$1&$2=$3&$4=$5&$6=$7 [L]
+RewriteRule ^86it-(.*)_-_(.*)_-_(.*)_-_(.*)_-_(.*)_-_(.*)_-_(.*)\.html#(.*)$ /modules.php?name=$1&$2=$3&$4=$5&$6=$7#$8 [L]
+RewriteRule ^86it-(.*)_-_(.*)_-_(.*)_-_(.*)_-_(.*)_-_(.*)_-_(.*)\.html$ /modules.php?name=$1&$2=$3&$4=$5&$6=$7 [L]
 
-RewriteRule ^Evo-(.*)_-_(.*)_-_(.*)_-_(.*)_-_(.*)\.html#(.*)$ /modules.php?name=$1&$2=$3&$4=$5#$6 [L]
-RewriteRule ^Evo-(.*)_-_(.*)_-_(.*)_-_(.*)_-_(.*)\.html$ /modules.php?name=$1&$2=$3&$4=$5 [L]
+RewriteRule ^86it-(.*)_-_(.*)_-_(.*)_-_(.*)_-_(.*)\.html#(.*)$ /modules.php?name=$1&$2=$3&$4=$5#$6 [L]
+RewriteRule ^86it-(.*)_-_(.*)_-_(.*)_-_(.*)_-_(.*)\.html$ /modules.php?name=$1&$2=$3&$4=$5 [L]
 
-RewriteRule ^Evo-(.*)_-_(.*)_-_(.*)\.html#(.*)$ /modules.php?name=$1&$2=$3#$4 [L]
-RewriteRule ^Evo-(.*)_-_(.*)_-_(.*)\.html$ /modules.php?name=$1&$2=$3 [L]
+RewriteRule ^86it-(.*)_-_(.*)_-_(.*)\.html#(.*)$ /modules.php?name=$1&$2=$3#$4 [L]
+RewriteRule ^86it-(.*)_-_(.*)_-_(.*)\.html$ /modules.php?name=$1&$2=$3 [L]
 
-RewriteRule ^Evo-index.html#(.*)$ /index.php#$1 [L]
-RewriteRule ^Evo-index.html$ /index.php [L]
+RewriteRule ^86it-index.html#(.*)$ /index.php#$1 [L]
+RewriteRule ^86it-index.html$ /index.php [L]
 
-RewriteRule ^Evo-(.*)\.html#(.*)$ /modules.php?name=$1#$2 [L]
-RewriteRule ^Evo-(.*)\.html$ /modules.php?name=$1 [L]
+RewriteRule ^86it-(.*)\.html#(.*)$ /modules.php?name=$1#$2 [L]
+RewriteRule ^86it-(.*)\.html$ /modules.php?name=$1 [L]
 
 RewriteCond %{HTTP_USER_AGENT} ^libwww-perl
 RewriteRule ^.*$ http://127.0.0.1 [R,L]
@@ -85,6 +77,7 @@ RewriteRule ^.*$ http://127.0.0.1 [R,L]
 <IfModule mod_autoindex.c>
  IndexIgnore *
 </IfModule>
+
 
 # -------------------------------------------
 # Start of NukeSentinel(tm) admin.php Auth
@@ -125,6 +118,14 @@ RewriteRule ^.*$ http://127.0.0.1 [R,L]
 <FilesMatch "\.(inc|tpl|h|ihtml|sql|ini|conf|class|bin|spd|theme|module|exe)$">
 deny from all
 </FilesMatch>
+
+<FilesMatch "versions\feed.php">
+  allow from all
+</FilesMatch>
+<FilesMatch "versions\index.php">
+  allow from all
+</FilesMatch>
+
 # -------------------------------------------
 # Setup caching
 # -------------------------------------------
@@ -157,3 +158,10 @@ Header append Cache-Control "public"
 # -------------------------------------------
 
 # Banned Bad Bots
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php73” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php73 .php .php7 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit
