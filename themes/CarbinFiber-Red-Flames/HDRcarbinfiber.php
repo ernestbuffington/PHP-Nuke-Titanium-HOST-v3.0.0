@@ -104,43 +104,44 @@ echo '<td><img name="trc" src="themes/'.$theme_name.'/header/trc.gif" width="20"
 echo '</tr>';
 echo '<tr>';
 
-# left side table 2
+# left side table 2 
 echo '<td background="themes/'.$theme_name.'/header/left_side.gif"><img name="leftside" src="themes/'.$theme_name.'/header/invisible_pixel.gif" width="1" height="1" border="0" alt=""></td>';
 
 # flames start
 echo '<td id="bg" class="flames" height"0" valign="top" >';
 
 # logo start
-if (strcmp($_SERVER['SERVER_NAME'], 'the.scorpion.network') == 0):
-echo '<div align="center" id="locator"><a class="greatminds" href="../../index.php"><img src="themes/'.$theme_name.'/logo/tsn_gold.png"></a></div>';
+if (strcmp($_SERVER['SERVER_NAME'], 'host.86it.us') == 0):
+echo '<div align="center" id="locator"><a class="greatminds" href="../../index.php"><img src="themes/'.$theme_name.'/logo/host.86it.us_small.png"></a></div>';
 endif;
 
-if (strcmp($_SERVER['SERVER_NAME'], 'hub.86it.us') == 0):
-echo '<div align="center" id="locator"><a class="greatminds" href="../../index.php"><img src="themes/'.$theme_name.'/logo/the-86it-developers-network.png"></a></div>';
-endif;
-
-if (strcmp($_SERVER['SERVER_NAME'], 'hub.86it.us') == 0):
+if (strcmp($_SERVER['SERVER_NAME'], 'host.86it.us') == 0):
 echo '<div align="center" id="text"><h1><a class="greatminds" href="../../index.php">XHTML 1.0 | curl 7.65.0 | MariaDB 10.1.40 | PHP 7.3.8</a></h1></div>';
 endif;
 
-# logo end
-echo '<pre>'.' '.'</pre>';
+if (strcmp($_SERVER['SERVER_NAME'], 'host.86it.us') == 0):
+echo '<div align="center" id="text"><img name="tbm" src="themes/'.$theme_name.'/header/invisible_pixel.gif" width="1" height="4" border="0" alt=""></div>';
+endif;
 
+
+if (strcmp($_SERVER['SERVER_NAME'], 'host.86it.us') == 0):
 # start 3rd line of header
 echo '<div align="center" id="text"><img name="tbm" src="themes/'.$theme_name.'/header/invisible_pixel.gif" width="1" height="1" border="0" alt=""><h3>Great Minds Do Not Think Alike</h3></div>';
 # end 3rd line of header
+endif;
 
+if (strcmp($_SERVER['SERVER_NAME'], 'host.86it.us') == 0):
 echo '<div align="center" id="text"><img name="tbm" src="themes/'.$theme_name.'/header/invisible_pixel.gif" width="1" height="1" border="0" alt=""></div>';
+endif;
 
 # start 4th line of header
 global $screen_res, $screen_width, $screen_height;
-echo '<div align="center" id="locator">Monitor Resolution '.$screen_res.'</div>';
+echo '<div align="center" id="locator">Your Current Monitor Resolution is '.$screen_res.'</div>';
 # end 4th line of header
 
-echo '<br />';
-
-$fart_toggle = '';
-echo $fart_toggle;
+if (strcmp($_SERVER['SERVER_NAME'], 'host.86it.us') == 0):
+echo '<div align="center" id="text"><img name="tbm" src="themes/'.$theme_name.'/header/invisible_pixel.gif" width="1" height="6" border="0" alt=""></div>';
+endif;
 
 # MENU SYSTEM
 #################################################################################################################################################

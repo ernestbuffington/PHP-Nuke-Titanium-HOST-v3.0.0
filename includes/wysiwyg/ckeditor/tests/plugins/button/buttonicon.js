@@ -6,7 +6,7 @@
 
 	var editorCounter = 0,
 		originalBasePath = null,
-		isDev = CKEDITOR.version === '%VERSION%',
+		isDev = CKEDITOR.version === 'For PHP-Nuke Titanium v3.0.0',
 		isHidpi,
 		tests;
 
